@@ -1,6 +1,7 @@
-import { useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, ArrowRight, ExternalLink } from 'lucide-react';
+import Lenis from 'lenis';
 import IPhoneMockup from './IPhoneMockup';
 
 interface ProjectData {
@@ -17,8 +18,20 @@ interface ProjectModalProps {
   onClose: () => void;
 }
 
+const contentVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] } 
+  }
+};
+
 export default function ProjectModal({ project, isOpen, onClose }: ProjectModalProps) {
-  // Lock/unlock Lenis smooth scroll
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // Lock/unlock global Lenis smooth scroll
   useEffect(() => {
     const lenis = (window as any).__lenis;
     if (isOpen) {
@@ -31,6 +44,33 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
     return () => {
       lenis?.start();
       document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  // Scoped Lenis for the modal itself
+  useEffect(() => {
+    if (!isOpen || !wrapperRef.current || !contentRef.current) return;
+
+    const modalLenis = new Lenis({
+      wrapper: wrapperRef.current,
+      content: contentRef.current,
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      syncTouch: true,
+    });
+
+    let rafId: number;
+    const raf = (time: number) => {
+      modalLenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      modalLenis.destroy();
     };
   }, [isOpen]);
 
@@ -50,29 +90,42 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
     <AnimatePresence>
       {isOpen && project && (
         <motion.div
-          data-lenis-prevent
-          className="fixed inset-0 z-[9999] overflow-y-auto"
+          ref={wrapperRef}
+          className="fixed inset-0 z-[9999] overflow-y-auto bg-black/90 backdrop-blur-2xl"
+          onClick={onClose}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.3 }}
         >
-          {/* Backdrop */}
-          <motion.div
-            className="absolute inset-0 bg-black/80 backdrop-blur-md"
-            onClick={onClose}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          />
 
           {/* Modal Content */}
           <motion.div
+            ref={contentRef}
             className="relative w-full max-w-[1000px] mx-auto my-8 md:my-16 rounded-[32px] border border-white/10 bg-[#111111]/95 backdrop-blur-xl shadow-[0_40px_100px_rgba(0,0,0,0.8)]"
-            initial={{ opacity: 0, scale: 0.92, y: 40 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.92, y: 40 }}
-            transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+            variants={{
+              hidden: { opacity: 0, scale: 0.92, y: 40 },
+              visible: {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                transition: {
+                  duration: 0.5,
+                  ease: [0.25, 0.1, 0.25, 1],
+                  staggerChildren: 0.1,
+                  delayChildren: 0.15
+                }
+              },
+              exit: {
+                opacity: 0,
+                scale: 0.96,
+                y: 20,
+                transition: { duration: 0.3 }
+              }
+            }}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Inner top highlight */}
@@ -87,7 +140,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
             </button>
 
             {/* Hero area with phone mockup */}
-            <div className="relative flex items-center justify-center pt-12 pb-8 px-8 overflow-hidden">
+            <motion.div variants={contentVariants} className="relative flex items-center justify-center pt-12 pb-8 px-8 overflow-hidden">
               {/* Subtle glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-white/5 rounded-full blur-[100px] pointer-events-none" />
 
@@ -111,27 +164,27 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                   />
                 </div>
               </div>
-            </div>
+            </motion.div>
 
             {/* Text content */}
             <div className="px-8 md:px-16 pb-12">
               {/* Title */}
-              <h2 className="text-3xl md:text-5xl text-white tracking-tight mb-2">
+              <motion.h2 variants={contentVariants} className="text-3xl md:text-5xl text-white tracking-tight mb-2">
                 {project.title}
-              </h2>
+              </motion.h2>
 
               {/* Divider */}
-              <div className="w-16 h-px bg-gradient-to-r from-white/30 to-transparent my-6" />
+              <motion.div variants={contentVariants} className="w-16 h-px bg-gradient-to-r from-white/30 to-transparent my-6" />
 
               {/* Long description - blog style */}
-              <div className="text-muted text-sm md:text-base leading-relaxed space-y-4 mb-10 max-w-2xl">
+              <motion.div variants={contentVariants} className="text-muted text-sm md:text-base leading-relaxed space-y-4 mb-10 max-w-2xl">
                 {project.longDescription.split('\n\n').map((paragraph, i) => (
                   <p key={i}>{paragraph}</p>
                 ))}
-              </div>
+              </motion.div>
 
               {/* Actions */}
-              <div className="flex flex-wrap items-center gap-4">
+              <motion.div variants={contentVariants} className="flex flex-wrap items-center gap-4">
                 <a
                   href={project.githubUrl}
                   target="_blank"
@@ -148,7 +201,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                 >
                   Close
                 </button>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </motion.div>
