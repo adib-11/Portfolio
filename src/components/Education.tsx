@@ -10,35 +10,35 @@ const educationData = [
     title: "B.Sc in Electrical & Computer Engineering. Current CGPA: 3.70/4.00 with coursework in C, C++, Java, DSA, Database Management, and Digital Techniques.",
     institution: "Rajshahi University of Engineering & Technology (RUET)",
     year: "2023 - Present",
-    imgSrc: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=150&auto=format&fit=crop"
+    imgSrc: "/logos/ruet_logo.png"
   },
   {
     tempId: 1,
     title: "Higher Secondary Certificate (HSC). Achieved GPA 5.00/5.00 in Science group.",
     institution: "Abdul Kadir Mollah City College, Narsingdi",
     year: "2022",
-    imgSrc: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=150&auto=format&fit=crop"
+    imgSrc: "/logos/college.png"
   },
   {
     tempId: 2,
     title: "Secondary School Certificate (SSC). Achieved GPA 5.00/5.00 in Science group.",
-    institution: "Abdul Kadir Mollah City College, Narsingdi",
+    institution: "Brahmondi K.K.M Govt High School",
     year: "2020",
-    imgSrc: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=150&auto=format&fit=crop"
+    imgSrc: "/logos/school.png"
   },
   {
     tempId: 3,
     title: "Agentic AI Certification. Completed coursework on building autonomous AI agents and workflows.",
     institution: "DeepLearning.AI",
     year: "2025",
-    imgSrc: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=150&auto=format&fit=crop"
+    imgSrc: "/logos/deeplearning.png"
   },
   {
     tempId: 4,
     title: "100 Days of SwiftUI. Comprehensive iOS development course covering SwiftUI, Core Data, networking, and app architecture.",
     institution: "HackingWithSwift.com",
     year: "Ongoing",
-    imgSrc: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=150&auto=format&fit=crop"
+    imgSrc: "/logos/hacking_with_swift.png"
   }
 ];
 
@@ -53,11 +53,11 @@ interface EducationCardProps {
   cardSize: number;
 }
 
-const EducationCard: React.FC<EducationCardProps> = ({ 
-  position, 
-  data, 
-  handleMove, 
-  cardSize 
+const EducationCard: React.FC<EducationCardProps> = ({
+  position,
+  data,
+  handleMove,
+  cardSize
 }) => {
   const isCenter = position === 0;
 
@@ -66,8 +66,8 @@ const EducationCard: React.FC<EducationCardProps> = ({
       onClick={() => handleMove(position)}
       className={cn(
         "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out",
-        isCenter 
-          ? "z-10 bg-text-primary text-bg border-text-primary" 
+        isCenter
+          ? "z-10 bg-text-primary text-bg border-text-primary"
           : "z-0 bg-surface text-text-primary border-stroke hover:border-text-primary/50"
       )}
       style={{

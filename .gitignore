@@ -12,3 +12,6 @@ Project_SS/
 
 # Ignore raw milestone images folder
 Recent_milestone_images/
+
+# Ignore local logos
+public/logos/

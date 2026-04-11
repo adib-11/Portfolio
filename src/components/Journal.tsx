@@ -75,7 +75,7 @@ export default function Journal() {
               </p>
             </div>
 
-            <Button variant="secondary" className="hidden md:inline-flex">
+            <Button variant="secondary" href="https://linkedin.com/in/adibhasan11" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex">
               View all <ArrowRight className="w-4 h-4" />
             </Button>
           </motion.div>

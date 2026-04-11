@@ -100,7 +100,7 @@ export default function SelectedWorks() {
               </p>
             </div>
             
-            <Button variant="secondary" className="hidden md:inline-flex">
+            <Button variant="secondary" href="https://github.com/adib-11" target="_blank" rel="noopener noreferrer" className="hidden md:inline-flex">
               View all work <ArrowRight className="w-4 h-4" />
             </Button>
           </motion.div>
