@@ -16,7 +16,7 @@ const projects = [
       "/projects/snowseeker/Home.png",
       "/projects/snowseeker/Details.png",
     ],
-    githubUrl: "https://github.com/adib/snowseeker",
+    githubUrl: "https://github.com/adib-11/100-Days-of-SwiftUI/tree/main/project19",
   },
   {
     title: "Hot Prospects",
@@ -26,7 +26,7 @@ const projects = [
       "/projects/hotprospects/1.png",
       "/projects/hotprospects/2.png",
     ],
-    githubUrl: "https://github.com/adib/hotprospects",
+    githubUrl: "https://github.com/adib-11/100-Days-of-SwiftUI/tree/main/project16",
   },
   {
     title: "BucketList",
@@ -36,7 +36,7 @@ const projects = [
       "/projects/bucketlist/1.png",
       "/projects/bucketlist/video.mp4",
     ],
-    githubUrl: "https://github.com/adib/bucketlist",
+    githubUrl: "https://github.com/adib-11/100-Days-of-SwiftUI/tree/main/project14",
   },
   {
     title: "Guess the Flag",
@@ -46,7 +46,7 @@ const projects = [
       "/projects/guesstheflag/1.png",
       "/projects/guesstheflag/2.png",
     ],
-    githubUrl: "https://github.com/adib/guesstheflag",
+    githubUrl: "https://github.com/adib-11/100-Days-of-SwiftUI/tree/main/GuessTheFlag",
   },
   {
     title: "SwiftUI Animations",
@@ -56,7 +56,7 @@ const projects = [
       "/projects/animations/1.png",
       "/projects/animations/video.mov",
     ],
-    githubUrl: "https://github.com/adib/animations",
+    githubUrl: "https://github.com/adib-11/100-Days-of-SwiftUI/tree/main/Animations",
   }
 ];
 
