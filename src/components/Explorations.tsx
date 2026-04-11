@@ -6,12 +6,12 @@ import { ArrowRight } from 'lucide-react';
 gsap.registerPlugin(ScrollTrigger);
 
 const explorations = [
-  { image: "https://picsum.photos/seed/e1/600/600", rotation: -5, yOffset: 0 },
-  { image: "https://picsum.photos/seed/e2/600/600", rotation: 3, yOffset: 200 },
-  { image: "https://picsum.photos/seed/e3/600/600", rotation: 2, yOffset: 100 },
-  { image: "https://picsum.photos/seed/e4/600/600", rotation: -4, yOffset: 300 },
-  { image: "https://picsum.photos/seed/e5/600/600", rotation: -2, yOffset: 200 },
-  { image: "https://picsum.photos/seed/e6/600/600", rotation: 5, yOffset: 400 },
+  { image: "/explorations/expl_1.png", rotation: -5, yOffset: 0 },
+  { image: "/explorations/expl_2.png", rotation: 3, yOffset: 200 },
+  { image: "/explorations/expl_3.png", rotation: 2, yOffset: 100 },
+  { image: "/explorations/expl_4.png", rotation: -4, yOffset: 300 },
+  { image: "/explorations/expl_5.png", rotation: -2, yOffset: 200 },
+  { image: "/explorations/expl_6.png", rotation: 5, yOffset: 400 },
 ];
 
 export default function Explorations() {
