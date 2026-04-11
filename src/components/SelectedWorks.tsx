@@ -9,55 +9,55 @@ import ProjectModal from './ProjectModal';
 
 const projects = [
   {
-    title: "UniVerse iOS App",
-    description: "A student life management app built with SwiftUI and Firebase. Improved data fetch performance by 25% through Firebase optimization, with academic & productivity features.",
-    longDescription: "UniVerse is a comprehensive student life management application designed to streamline academic workflows. Built with SwiftUI for a native iOS experience and powered by Firebase for real-time data synchronization.\n\nThe app features intelligent scheduling, assignment tracking, and collaborative study tools — all wrapped in a polished, intuitive interface. Firebase optimization reduced data fetch times by 25%, ensuring a snappy experience even with large datasets.\n\nKey features include a smart calendar, GPA tracker, task management with reminders, and a community feed where students can share resources and study tips.",
+    title: "SnowSeeker",
+    description: "SwiftUI iOS app that helps users discover and explore ski resorts with a clean, adaptive master-detail interface.",
+    longDescription: "SnowSeeker is a SwiftUI-based iOS app that helps users discover and explore ski resorts using a clean, adaptive master-detail interface powered by NavigationSplitView. It loads a bundled dataset from resorts.json, presents a browsable list with country flag thumbnails, resort names, and run counts, and offers fast, localized search via .searchable. Users can mark favorites, which are highlighted inline with a heart icon and shared across views through environment-injected state. The app leverages modern SwiftUI patterns including @State, environment models, and .navigationDestination for type-safe navigation, while incorporating accessibility labels for a more inclusive experience. Its modular structure and data-decoding approach provide a strong foundation for future enhancements like sorting, advanced filters, richer detail views, and cloud-synced favorites.",
     screenshots: [
-      "https://picsum.photos/seed/universe1/400/860",
-      "https://picsum.photos/seed/universe2/400/860",
+      "/projects/snowseeker/Home.png",
+      "/projects/snowseeker/Details.png",
     ],
-    githubUrl: "https://github.com/placeholder/universe",
+    githubUrl: "https://github.com/adib/snowseeker",
   },
   {
-    title: "NutriMind Platform",
-    description: "Early-stage SaaS solution targeting health and fitness of Bangladeshi people. Built with React, Next.js, Supabase, and external APIs.",
-    longDescription: "NutriMind is an early-stage SaaS platform focused on making personalized nutrition and fitness guidance accessible to the Bangladeshi population. It combines modern web technologies with culturally relevant health data.\n\nBuilt with Next.js and React for a fast, SEO-friendly frontend, and Supabase for authentication and database management. External APIs power the nutritional analysis and meal planning features.\n\nThe platform offers BMI tracking, custom meal plans based on local cuisine, exercise routines, and progress analytics — all presented through a clean, modern dashboard.",
+    title: "Hot Prospects",
+    description: "SwiftUI iOS app for tracking potential contacts and outreach. It organizes leads into clear tabs—Everyone, Contacted, and Uncontacted.",
+    longDescription: "Hot Prospects is a SwiftUI iOS app for tracking potential contacts and outreach. It organizes leads into clear tabs—Everyone, Contacted, and Uncontacted—so you can prioritize follow-ups at a glance. Built with a clean, tab-based UI and modular views, the project demonstrates state management, filtering, and scalable SwiftUI architecture suitable for real-world productivity apps.",
     screenshots: [
-      "https://picsum.photos/seed/nutri1/400/860",
-      "https://picsum.photos/seed/nutri2/400/860",
+      "/projects/hotprospects/1.png",
+      "/projects/hotprospects/2.png",
     ],
-    githubUrl: "https://github.com/placeholder/nutrimind",
+    githubUrl: "https://github.com/adib/hotprospects",
   },
   {
-    title: "16-Sensor Line-Following Robot",
-    description: "Custom PCB design with 16-sensor array, improving line detection resolution 4×. Optimized PID tuning for ~35% more stability and 20% faster tracking.",
-    longDescription: "This project involved designing and building a high-precision line-following robot from the ground up, including custom PCB design for a 16-sensor infrared array that improved line detection resolution by 4× compared to standard 4-sensor setups.\n\nThe robot uses a finely tuned PID (Proportional-Integral-Derivative) controller to achieve smooth, stable tracking at speed. Extensive calibration and parameter optimization resulted in ~35% more stability and 20% faster line tracking.\n\nThe custom PCB was designed in KiCad, featuring compact sensor placement, noise filtering, and efficient power distribution. The firmware runs on an ARM-based microcontroller with real-time sensor fusion.",
+    title: "BucketList",
+    description: "SwiftUI app that lets users build a personalized map of places they want to remember or explore, combining a clean, privacy-conscious architecture with delightful features.",
+    longDescription: "BucketList is a SwiftUI app that lets users build a personalized map of places they want to remember or explore, combining a clean, privacy-conscious architecture with delightful, practical features. The app uses MapKit with an intuitive, tappable map to add locations, and displays custom annotations that can be long-pressed to edit details. A lightweight model layer persists data securely to disk using Codable and complete file protection, while Swift Concurrency powers seamless fetching of nearby points of interest from Wikipedia to enrich each place with contextual information. The experience is gated by secure biometric authentication via LocalAuthentication, ensuring personal data remains private. The codebase follows modern Swift practices—observable view models for state, clear separation of concerns, and dependency-light design—resulting in a fast, maintainable, and accessible app that feels at home across Apple platforms.",
     screenshots: [
-      "https://picsum.photos/seed/robot1/400/860",
-      "https://picsum.photos/seed/robot2/400/860",
+      "/projects/bucketlist/1.png",
+      "/projects/bucketlist/video.mp4",
     ],
-    githubUrl: "https://github.com/placeholder/line-robot",
+    githubUrl: "https://github.com/adib/bucketlist",
   },
   {
-    title: "ESP32 Micro Drone",
-    description: "Programmable micro drone with sensor fusion flight controller achieving hover stabilization. Improved command latency by ~18% via ESP32 optimization.",
-    longDescription: "A fully programmable micro drone powered by the ESP32 microcontroller, featuring a custom sensor fusion flight controller built from scratch. The project demonstrates embedded systems programming, real-time control theory, and PCB design.\n\nThe flight controller combines accelerometer, gyroscope, and barometer data using a complementary filter for stable hover. ESP32-specific optimizations — including FreeRTOS task prioritization and DMA transfers — reduced command latency by approximately 18%.\n\nThe drone supports Wi-Fi-based remote control through a custom mobile app, telemetry streaming, and autonomous waypoint navigation using GPS.",
+    title: "Guess the Flag",
+    description: "Polished SwiftUI learning game that challenges players to identify national flags with engaging interactions and modern visual design.",
+    longDescription: "Guess the Flag is a polished SwiftUI learning game that challenges players to identify national flags. Each round presents three flags and prompts the user to “Tap the flag of” a specific country. The app features smooth animations (3D spin on selection and contextual opacity for non-selected flags), a clean glassy UI using materials and gradients, and a simple scoring system with round-based progression. After eight questions, it displays a final score with an option to play again.\n\nKey highlights:\n• Built with SwiftUI, leveraging @State for game state, scoring, and animations.\n• Engaging interactions: 3D rotation on tap and subtle transitions to emphasize choices.\n• Clear game loop with shuffle logic, correctness feedback via alerts, and a final results screen.\n• Modern visual design: radial gradient background, material cards, and shadowed capsule images for flags.\n\nThis project demonstrates SwiftUI fundamentals, state management, user feedback, and delightful UI/UX patterns in a compact, production-quality mini-game.",
     screenshots: [
-      "https://picsum.photos/seed/drone1/400/860",
-      "https://picsum.photos/seed/drone2/400/860",
+      "/projects/guesstheflag/1.png",
+      "/projects/guesstheflag/2.png",
     ],
-    githubUrl: "https://github.com/placeholder/micro-drone",
+    githubUrl: "https://github.com/adib/guesstheflag",
   },
   {
-    title: "Hackathon Web Platforms",
-    description: "Deployment-ready web apps built with HTML, CSS, JS, and Supabase for national hackathons. Reduced prototype build time by 30–40% using modular components.",
-    longDescription: "A collection of deployment-ready web applications built for national hackathon competitions. Each platform was designed for rapid prototyping without sacrificing code quality or user experience.\n\nThe tech stack centers on vanilla HTML, CSS, and JavaScript for maximum flexibility, paired with Supabase for backend services including authentication, real-time databases, and file storage.\n\nA modular component library was developed across projects, reducing prototype build time by 30–40%. Each application features responsive design, progressive enhancement, and clean architecture patterns.",
+    title: "SwiftUI Animations",
+    description: "Interactive, state-driven animations demo using a spring-animated button and a draggable, per-character text effect.",
+    longDescription: "This SwiftUI demo showcases interactive, state-driven animations using a spring-animated button and a draggable, per-character text effect. Tapping the button toggles an enabled state with a playful spring transition that morphs color and corner radius, while the text “How cool is that?!” is rendered as individually animated characters that move together via a DragGesture and return to their origin on release. Each character uses a slight delay for a wave-like motion, and the drag ending also flips the enabled state to alternate the color scheme. The implementation cleanly leverages @State, withAnimation, and .animation(..., value:) to combine explicit and implicit animations, illustrating how minimal, declarative SwiftUI code can create tactile, delightful interactions.",
     screenshots: [
-      "https://picsum.photos/seed/hack1/400/860",
-      "https://picsum.photos/seed/hack2/400/860",
+      "/projects/animations/1.png",
+      "/projects/animations/video.mov",
     ],
-    githubUrl: "https://github.com/placeholder/hackathon-platforms",
-  },
+    githubUrl: "https://github.com/adib/animations",
+  }
 ];
 
 export default function SelectedWorks() {

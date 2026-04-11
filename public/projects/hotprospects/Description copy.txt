@@ -1,0 +1,1 @@
+Hot Prospects is a SwiftUI iOS app for tracking potential contacts and outreach. It organizes leads into clear tabs—Everyone, Contacted, and Uncontacted—so you can prioritize follow-ups at a glance. Built with a clean, tab-based UI and modular views, the project demonstrates state management, filtering, and scalable SwiftUI architecture suitable for real-world productivity apps.

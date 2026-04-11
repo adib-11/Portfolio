@@ -93,12 +93,23 @@ export default function IPhoneMockup({
         />
 
         {/* Screen content */}
-        <img
-          src={screenImage}
-          alt="App screenshot"
-          className={`w-full h-full object-cover ${animate ? 'transition-opacity duration-700' : ''}`}
-          draggable={false}
-        />
+        {screenImage.match(/\.(mp4|mov)$/i) ? (
+          <video
+            src={screenImage}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={`w-full h-full object-cover ${animate ? 'transition-opacity duration-700' : ''}`}
+          />
+        ) : (
+          <img
+            src={screenImage}
+            alt="App screenshot"
+            className={`w-full h-full object-cover ${animate ? 'transition-opacity duration-700' : ''}`}
+            draggable={false}
+          />
+        )}
 
         {/* Inner screen bezel highlight */}
         <div
