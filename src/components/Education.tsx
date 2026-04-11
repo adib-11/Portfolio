@@ -6,35 +6,35 @@ const SQRT_5000 = Math.sqrt(5000);
 
 const educationData = [
   {
-    tempId: 0,
+    id: 0,
     title: "B.Sc in Electrical & Computer Engineering. Current CGPA: 3.70/4.00 with coursework in C, C++, Java, DSA, Database Management, and Digital Techniques.",
     institution: "Rajshahi University of Engineering & Technology (RUET)",
     year: "2023 - Present",
     imgSrc: "/logos/ruet_logo.png"
   },
   {
-    tempId: 1,
+    id: 1,
     title: "Higher Secondary Certificate (HSC). Achieved GPA 5.00/5.00 in Science group.",
     institution: "Abdul Kadir Mollah City College, Narsingdi",
     year: "2022",
     imgSrc: "/logos/college.png"
   },
   {
-    tempId: 2,
+    id: 2,
     title: "Secondary School Certificate (SSC). Achieved GPA 5.00/5.00 in Science group.",
     institution: "Brahmondi K.K.M Govt High School",
     year: "2020",
     imgSrc: "/logos/school.png"
   },
   {
-    tempId: 3,
+    id: 3,
     title: "Agentic AI Certification. Completed coursework on building autonomous AI agents and workflows.",
     institution: "DeepLearning.AI",
     year: "2025",
     imgSrc: "/logos/deeplearning.png"
   },
   {
-    tempId: 4,
+    id: 4,
     title: "100 Days of SwiftUI. Comprehensive iOS development course covering SwiftUI, Core Data, networking, and app architecture.",
     institution: "HackingWithSwift.com",
     year: "Ongoing",
@@ -126,13 +126,13 @@ export default function Education() {
       for (let i = steps; i > 0; i--) {
         const item = newList.shift();
         if (!item) return;
-        newList.push({ ...item, tempId: Math.random() });
+        newList.push(item);
       }
     } else {
       for (let i = steps; i < 0; i++) {
         const item = newList.pop();
         if (!item) return;
-        newList.unshift({ ...item, tempId: Math.random() });
+        newList.unshift(item);
       }
     }
     setList(newList);
@@ -179,7 +179,7 @@ export default function Education() {
           const position = index - Math.floor(list.length / 2);
           return (
             <EducationCard
-              key={item.tempId}
+              key={item.id}
               data={item}
               handleMove={handleMove}
               position={position}

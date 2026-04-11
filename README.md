@@ -4,7 +4,7 @@
 
 A sleek, minimalistic, dark-mode personal portfolio showcasing my journey from building hardware and flying drones to engineering refined, pocket-sized experiences as an iOS Developer.
 
-[View Live Project](#) <!-- Ensure you update this link when deployed! -->
+[View Live Project](https://github.com/adib-11/Portfolio)
 
 </div>
 
@@ -65,7 +65,7 @@ I focus on building Swift-native applications that go beyond function—apps tha
 ## 🤝 Let's Connect
 
 - **GitHub:** [@adib-11](https://github.com/adib-11)
-- **LinkedIn:** [Md. Adib Hasan](#) <!-- Replace with your actual LinkedIn URL -->
+- **LinkedIn:** [Md. Adib Hasan](https://linkedin.com/in/adibhasan11)
 - **Email:** iamadib120775@gmail.com
 
 ---
