@@ -9,3 +9,6 @@ coverage/
 
 # Ignore project screenshots folder
 Project_SS/
+
+# Ignore raw milestone images folder
+Recent_milestone_images/
