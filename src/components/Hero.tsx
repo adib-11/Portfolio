@@ -91,7 +91,12 @@ export default function Hero() {
             <span className="relative z-10">Resume</span>
           </a>
           
-          <a href="#contact" className="group relative rounded-full text-sm px-7 py-3.5 transition-transform hover:scale-105 border-2 border-stroke bg-bg text-text-primary hover:border-transparent">
+          <a href="#contact" onClick={(e) => {
+            e.preventDefault();
+            const lenis = (window as any).__lenis;
+            if (lenis) { lenis.scrollTo('#contact', { duration: 1.2 }); }
+            else { document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }); }
+          }} className="group relative rounded-full text-sm px-7 py-3.5 transition-transform hover:scale-105 border-2 border-stroke bg-bg text-text-primary hover:border-transparent">
             <span className="absolute inset-[-2px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 accent-gradient-border" />
             <span className="relative z-10">Reach out...</span>
           </a>

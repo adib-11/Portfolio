@@ -35,7 +35,7 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    /* scroll-behavior handled by Lenis smooth scrolling */
   }
   body {
     @apply bg-bg text-text-primary font-body antialiased selection:bg-text-primary selection:text-bg;

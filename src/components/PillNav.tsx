@@ -206,6 +206,19 @@ const PillNav = ({
     onMobileMenuClick?.();
   };
 
+  // Smooth-scroll to hash targets via Lenis (or native fallback)
+  const handleAnchorClick = (e, href) => {
+    if (!href?.startsWith('#')) return;
+    e.preventDefault();
+    const lenis = (window as any).__lenis;
+    if (lenis) {
+      lenis.scrollTo(href, { duration: 1.2, offset: 0 });
+    } else {
+      const el = document.querySelector(href);
+      el?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const isExternalLink = href =>
     href.startsWith('http://') ||
     href.startsWith('https://') ||
@@ -255,6 +268,7 @@ const PillNav = ({
               href={items?.[0]?.href || '#'}
               aria-label="Home"
               onMouseEnter={handleLogoEnter}
+              onClick={(e) => handleAnchorClick(e, items?.[0]?.href)}
               ref={el => {
                 logoRef.current = el;
               }}
@@ -366,6 +380,7 @@ const PillNav = ({
                       aria-label={item.ariaLabel || item.label}
                       onMouseEnter={() => handleEnter(i)}
                       onMouseLeave={() => handleLeave(i)}
+                      onClick={(e) => handleAnchorClick(e, item.href)}
                     >
                       {PillContent}
                     </a>
@@ -445,7 +460,7 @@ const PillNav = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => { handleAnchorClick(e, item.href); setIsMobileMenuOpen(false); }}
                   >
                     {item.label}
                   </a>
