@@ -1,9 +1,0 @@
-Guess the Flag is a polished SwiftUI learning game that challenges players to identify national flags. Each round presents three flags and prompts the user to “Tap the flag of” a specific country. The app features smooth animations (3D spin on selection and contextual opacity for non-selected flags), a clean glassy UI using materials and gradients, and a simple scoring system with round-based progression. After eight questions, it displays a final score with an option to play again.
-
-Key highlights:
-• Built with SwiftUI, leveraging @​State for game state, scoring, and animations.
-• Engaging interactions: 3D rotation on tap and subtle transitions to emphasize choices.
-• Clear game loop with shuffle logic, correctness feedback via alerts, and a final results screen.
-• Modern visual design: radial gradient background, material cards, and shadowed capsule images for flags.
-
-This project demonstrates SwiftUI fundamentals, state management, user feedback, and delightful UI/UX patterns in a compact, production-quality mini-game.
