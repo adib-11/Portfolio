@@ -6,9 +6,11 @@ interface ButtonProps {
   onClick?: () => void;
   href?: string;
   className?: string;
+  target?: string;
+  rel?: string;
 }
 
-export function Button({ variant = 'primary', children, onClick, href, className = '' }: ButtonProps) {
+export function Button({ variant = 'primary', children, onClick, href, className = '', target, rel }: ButtonProps) {
   const baseStyles = "px-7 py-3 rounded-full font-medium text-sm transition-all duration-300 whitespace-nowrap flex items-center justify-center gap-2 hover:scale-105";
 
   const variantStyles = {
@@ -21,6 +23,8 @@ export function Button({ variant = 'primary', children, onClick, href, className
     return (
       <a
         href={href}
+        target={target}
+        rel={rel}
         className={`${baseStyles} ${variantStyles[variant]} ${className}`}
       >
         {children}

@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import BorderGlow from './BorderGlow';
+import { Button } from './Button';
+import { ArrowRight } from 'lucide-react';
 
 const GITHUB_USERNAME = 'adib-11';
 
@@ -22,28 +24,30 @@ export default function GithubActivity() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
-          className="mb-12"
+          className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6"
         >
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-8 h-px bg-stroke" />
-            <span className="text-xs text-muted uppercase tracking-[0.3em]">Open Source</span>
-          </div>
-          <h2 className="text-4xl md:text-6xl text-text-primary tracking-tight mb-4">
-            Code <span className="font-display italic">contributions</span>
-          </h2>
-          <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <p className="text-muted text-sm md:text-base max-w-xl">
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-8 h-px bg-stroke" />
+              <span className="text-xs text-muted uppercase tracking-[0.3em]">Open Source</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl text-text-primary tracking-tight mb-4">
+              Code <span className="font-display italic">contributions</span>
+            </h2>
+            <p className="text-muted text-sm md:text-base">
               My activity across various repositories and open-source projects over the last year.
             </p>
-            <a
-              href={`https://github.com/${GITHUB_USERNAME}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm text-accent hover:underline whitespace-nowrap"
-            >
-              View on GitHub →
-            </a>
           </div>
+
+          <Button
+            href={`https://github.com/${GITHUB_USERNAME}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            variant="secondary"
+            className="hidden md:inline-flex"
+          >
+            View on GitHub <ArrowRight className="w-4 h-4" />
+          </Button>
         </motion.div>
 
         <motion.div

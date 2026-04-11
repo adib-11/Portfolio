@@ -30,7 +30,7 @@ const techLogos = [
 
 export default function Skills() {
   return (
-    <section className="bg-bg pb-12 md:pb-16">
+    <section className="bg-bg pt-24 md:pt-32 pb-12 md:pb-16">
       <div className="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-16">
         {/* Header */}
         <motion.div 
