@@ -65,6 +65,7 @@ const BorderGlow = ({
   fillOpacity = 0.5,
 }) => {
   const cardRef = useRef(null);
+  const rafRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
   const [cursorAngle, setCursorAngle] = useState(45);
   const [edgeProximity, setEdgeProximity] = useState(0);
@@ -98,13 +99,24 @@ const BorderGlow = ({
   }, [getCenterOfElement]);
 
   const handlePointerMove = useCallback((e) => {
-    const card = cardRef.current;
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    setEdgeProximity(getEdgeProximity(card, x, y));
-    setCursorAngle(getCursorAngle(card, x, y));
+    if (rafRef.current) return;
+    
+    // Capture these instantly (synchronously) from event before queuing RAF
+    const { clientX, clientY } = e;
+    
+    rafRef.current = requestAnimationFrame(() => {
+      const card = cardRef.current;
+      if (!card) {
+        rafRef.current = null;
+        return;
+      }
+      const rect = card.getBoundingClientRect();
+      const x = clientX - rect.left;
+      const y = clientY - rect.top;
+      setEdgeProximity(getEdgeProximity(card, x, y));
+      setCursorAngle(getCursorAngle(card, x, y));
+      rafRef.current = null;
+    });
   }, [getEdgeProximity, getCursorAngle]);
 
   useEffect(() => {

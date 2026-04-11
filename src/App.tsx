@@ -3,21 +3,23 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import LoadingScreen from './components/LoadingScreen';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
-import SelectedWorks from './components/SelectedWorks';
 import Skills from './components/Skills';
 import Stats from './components/Stats';
-import Journal from './components/Journal';
-import Explorations from './components/Explorations';
-import GithubActivity from './components/GithubActivity';
-import Education from './components/Education';
 import Footer from './components/Footer';
 import ClickSpark from './components/ClickSpark';
+
+// Lazy load heavy / below-the-fold components
+const SelectedWorks = lazy(() => import('./components/SelectedWorks'));
+const Journal = lazy(() => import('./components/Journal'));
+const Explorations = lazy(() => import('./components/Explorations'));
+const GithubActivity = lazy(() => import('./components/GithubActivity'));
+const Education = lazy(() => import('./components/Education'));
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -50,12 +52,14 @@ export default function App() {
             <Hero />
             <About />
             <Stats />
-            <SelectedWorks />
             <Skills />
-            <Journal />
-            <Explorations />
-            <GithubActivity />
-            <Education />
+            <Suspense fallback={<div className="h-20 w-full" />}>
+              <SelectedWorks />
+              <Journal />
+              <Explorations />
+              <GithubActivity />
+              <Education />
+            </Suspense>
           </main>
           <Footer />
         </motion.div>

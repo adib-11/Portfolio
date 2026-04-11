@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Hls from 'hls.js';
 import gsap from 'gsap';
 import { ArrowUpRight, Linkedin, Github, Mail } from 'lucide-react';
@@ -8,7 +8,30 @@ export default function Footer() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
 
+  const [isInView, setIsInView] = useState(false);
+
   useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect(); // Only need to load it once
+        }
+      },
+      { rootMargin: '200px' } // Load slightly before it enters the viewport
+    );
+
+    const currentFooter = document.getElementById('contact');
+    if (currentFooter) {
+      observer.observe(currentFooter);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isInView) return;
+
     // HLS Video Setup
     const video = videoRef.current;
     const src = "https://stream.mux.com/Aa02T7oM1wH5Mk5EEVDYhbZ1ChcdhRsS2m1NYyx4Ua1g.m3u8";
@@ -22,7 +45,7 @@ export default function Footer() {
         video.src = src;
       }
     }
-  }, []);
+  }, [isInView]);
 
   useEffect(() => {
     // Marquee Animation
