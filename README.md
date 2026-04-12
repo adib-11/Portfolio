@@ -94,10 +94,6 @@ Deployment targets GitHub Pages. The deploy flow is:
 1. Build with base path: `npm run predeploy`
 2. Publish build output: `npm run deploy`
 
-## Screenshots
-
-Project screenshots and demo visuals can be added here.
-
 ## Contact
 
 - GitHub: [@adib-11](https://github.com/adib-11)
