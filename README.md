@@ -1,75 +1,105 @@
-<div align="center">
+# Md. Adib Hasan Portfolio
 
-# Md. Adib Hasan — Personal Portfolio
+A modern, animation-rich developer portfolio built with React, TypeScript, and Vite.
 
-A sleek, minimalistic, dark-mode personal portfolio showcasing my journey from building hardware and flying drones to engineering refined, pocket-sized experiences as an iOS Developer.
+## Live Demo
 
-[View Live Project](https://github.com/adib-11/Portfolio)
+- Website: [https://adib-11.github.io/Portfolio/](https://adib-11.github.io/Portfolio/)
+- Repository: [https://github.com/adib-11/Portfolio](https://github.com/adib-11/Portfolio)
 
-</div>
+## Overview
 
-## 📌 Overview
+This project is a single-page portfolio focused on strong visual hierarchy, smooth interaction design, and polished presentation of selected work, milestones, and technical background.
 
-This repository contains the source code for my interactive developer portfolio. Through high-performance animations, fluid smooth-scrolling, and a premium aesthetic, this application acts as a showcase of my technical skills, educational background (ECE @ RUET), and most significantly, my **Swift/SwiftUI** native applications.
+It combines custom UI components with motion systems (GSAP + Framer Motion), smooth-scrolling behavior (Lenis), and responsive layouts optimized for both desktop and mobile experiences.
 
-## ✨ Features
+## Key Features
 
-- **Immersive Animations & Interactions:** Powered by `framer-motion` and `gsap`, featuring text scramble effects, complex page-load spring animations, and physics-based interactions.
-- **Smooth Scrolling Engine:** Global smooth scrolling provided by `lenis` for an ultra-premium navigation experience heavily requested in modern web design.
-- **Dynamic 3D Profile Card:** Custom 3D tilt tracking card component utilizing mathematics for life-like glare and perspective shifts.
-- **Featured Works Showcase:** A ScrollStack approach detailing complex iOS projects (SnowSeeker, Hot Prospects, BucketList) with sleek `IPhoneMockup` components.
-- **Visual Playground Lookbook:** A dedicated gallery section for SwiftUI micro-interactions, drone controller sketches, and UI experiments using generated and curated assets.
-- **Fully Responsive & Dark-Mode Native:** A strict, aesthetically driven dark theme utilizing a refined design system (Tailwind CSS v4).
+- Animated hero section with dynamic typography and background media.
+- Smooth section navigation with a custom pill-style navbar.
+- Project showcase with iPhone mockups and detail modals.
+- Milestone timeline with modal-based deep dives.
+- Explorations gallery with scroll-based parallax effects.
+- GitHub activity section and education carousel.
+- Reusable design primitives and custom interaction components.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-- **Core:** [React 19](https://react.dev/), [Vite](https://vitejs.dev/), TypeScript
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
-- **Animation:** [Framer Motion](https://www.framer.com/motion/), [GSAP](https://gsap.com/)
-- **Scrolling:** [Lenis Smooth Scroll](https://lenis.darkroom.engineering/)
-- **Icons:** [Lucide React](https://lucide.dev/), React Icons
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS v4
+- Framer Motion
+- GSAP + ScrollTrigger
+- Lenis
+- Lucide React + React Icons
 
-## 🚀 Running Locally
+## Project Structure
 
-To get a local copy up and running, follow these simple steps:
+```text
+.
+├── public/                  # Static assets (projects, milestones, logos, explorations)
+├── src/
+│   ├── components/          # UI sections and reusable interactive components
+│   ├── utils/               # Utility helpers
+│   ├── App.tsx              # Page composition and lazy loading
+│   ├── index.css            # Theme tokens and global styles
+│   └── main.tsx             # Application entry point
+├── index.html
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+```
+
+## Getting Started
 
 ### Prerequisites
-Make sure you have Node.js and `npm` installed.
+
+- Node.js 20+
+- npm 10+
 
 ### Installation
 
-1. **Clone the repository**
-   ```sh
-   git clone https://github.com/adib-11/Portfolio.git
-   ```
-2. **Navigate to the directory**
-   ```sh
-   cd Portfolio
-   ```
-3. **Install NPM packages**
-   ```sh
-   npm install
-   ```
-4. **Start the development server**
-   ```sh
-   npm run dev
-   ```
-5. Open `http://localhost:3000` to view it in the browser.
+```bash
+git clone https://github.com/adib-11/Portfolio.git
+cd Portfolio
+npm install
+```
 
-## 📱 About Me
+### Run Development Server
 
-I started as someone who built robots and flew drones, always chasing the feeling of making something real from scratch. Then iOS development changed everything. I realized the most powerful tool I could engineer fits in someone's pocket, and I've been obsessed with that ever since.
+```bash
+npm run dev
+```
 
-I focus on building Swift-native applications that go beyond function—apps that feel right, respect the user's intelligence, and solve problems worth solving.
+The app runs on:
 
-## 🤝 Let's Connect
+- Local: `http://localhost:3000`
+- Network: `http://0.0.0.0:3000`
 
-- **GitHub:** [@adib-11](https://github.com/adib-11)
-- **LinkedIn:** [Md. Adib Hasan](https://linkedin.com/in/adibhasan11)
-- **Email:** iamadib120775@gmail.com
+## Available Scripts
 
----
+- `npm run dev` - Start Vite development server.
+- `npm run build` - Create production build.
+- `npm run preview` - Preview production build locally.
+- `npm run lint` - Type-check with TypeScript (`tsc --noEmit`).
+- `npm run clean` - Remove build artifacts from `dist`.
+- `npm run predeploy` - Build with GitHub Pages base path.
+- `npm run deploy` - Publish `dist` to GitHub Pages.
 
-<div align="center">
-  <i>Engineered with an obsessive attention to detail.</i>
-</div>
+## Deployment
+
+Deployment targets GitHub Pages. The deploy flow is:
+
+1. Build with base path: `npm run predeploy`
+2. Publish build output: `npm run deploy`
+
+## Screenshots
+
+Project screenshots and demo visuals can be added here.
+
+## Contact
+
+- GitHub: [@adib-11](https://github.com/adib-11)
+- LinkedIn: [Md. Adib Hasan](https://linkedin.com/in/adibhasan11)
+- Email: iamadib120775@gmail.com
