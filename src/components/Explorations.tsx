@@ -2,16 +2,17 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
+import { getAssetPath } from '../utils/assetPath';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const explorations = [
-  { image: "/explorations/expl_1.png", rotation: -5, yOffset: 0 },
-  { image: "/explorations/expl_2.png", rotation: 3, yOffset: 200 },
-  { image: "/explorations/expl_3.png", rotation: 2, yOffset: 100 },
-  { image: "/explorations/expl_4.png", rotation: -4, yOffset: 300 },
-  { image: "/explorations/expl_5.png", rotation: -2, yOffset: 200 },
-  { image: "/explorations/expl_6.png", rotation: 5, yOffset: 400 },
+  { image: getAssetPath("/explorations/expl_1.png"), rotation: -5, yOffset: 0 },
+  { image: getAssetPath("/explorations/expl_2.png"), rotation: 3, yOffset: 200 },
+  { image: getAssetPath("/explorations/expl_3.png"), rotation: 2, yOffset: 100 },
+  { image: getAssetPath("/explorations/expl_4.png"), rotation: -4, yOffset: 300 },
+  { image: getAssetPath("/explorations/expl_5.png"), rotation: -2, yOffset: 200 },
+  { image: getAssetPath("/explorations/expl_6.png"), rotation: 5, yOffset: 400 },
 ];
 
 export default function Explorations() {

@@ -98,8 +98,11 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
     const cards = cardsRef.current;
     if (!cards.length) return;
 
+    const lenis = lenisRef.current;
+    
+    // Always use the smooth Lenis scroll value to prevent native vs smooth sync jitter
     const scrollTop = useWindowScroll
-      ? window.scrollY
+      ? (lenis ? lenis.scroll : window.scrollY)
       : (scrollerRef.current?.scrollTop || 0);
     const containerHeight = useWindowScroll
       ? window.innerHeight
@@ -149,23 +152,23 @@ const ScrollStack: React.FC<ScrollStackProps> = ({
       }
 
       const newTransform = {
-        translateY: Math.round(translateY * 100) / 100,
-        scale: Math.round(scale * 1000) / 1000,
-        rotation: Math.round(rotation * 100) / 100,
-        blur: Math.round(blur * 100) / 100
+        translateY,
+        scale,
+        rotation,
+        blur
       };
 
       const lastTransform = lastTransformsRef.current.get(i);
       const hasChanged =
         !lastTransform ||
-        Math.abs(lastTransform.translateY - newTransform.translateY) > 0.1 ||
-        Math.abs(lastTransform.scale - newTransform.scale) > 0.001 ||
-        Math.abs(lastTransform.rotation - newTransform.rotation) > 0.1 ||
-        Math.abs(lastTransform.blur - newTransform.blur) > 0.1;
+        Math.abs(lastTransform.translateY - newTransform.translateY) > 0.05 ||
+        Math.abs(lastTransform.scale - newTransform.scale) > 0.0005 ||
+        Math.abs(lastTransform.rotation - newTransform.rotation) > 0.05 ||
+        Math.abs(lastTransform.blur - newTransform.blur) > 0.05;
 
       if (hasChanged) {
-        const transform = `translate3d(0, ${newTransform.translateY}px, 0) scale(${newTransform.scale}) rotate(${newTransform.rotation}deg)`;
-        const filter = newTransform.blur > 0 ? `blur(${newTransform.blur}px)` : '';
+        const transform = `translate3d(0, ${newTransform.translateY.toFixed(3)}px, 0) scale(${newTransform.scale.toFixed(4)}) rotate(${newTransform.rotation.toFixed(3)}deg)`;
+        const filter = newTransform.blur > 0 ? `blur(${newTransform.blur.toFixed(2)}px)` : '';
 
         card.style.transform = transform;
         if (blurAmount > 0) {

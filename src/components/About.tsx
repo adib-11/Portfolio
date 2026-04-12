@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import ProfileCard from './ProfileCard';
+import { getAssetPath } from '../utils/assetPath';
 
 export default function About() {
   return (
@@ -20,7 +21,7 @@ export default function About() {
               handle="adibhasan"
               status="Online"
               contactText="Contact Me"
-              avatarUrl="/avatar.png"
+              avatarUrl={getAssetPath("/avatar.png")}
               showUserInfo={false}
               enableTilt={true}
               enableMobileTilt={false}

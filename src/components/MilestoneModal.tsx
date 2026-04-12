@@ -89,8 +89,19 @@ export default function MilestoneModal({ milestone, isOpen, onClose }: Milestone
     <AnimatePresence>
       {isOpen && milestone && (
         <motion.div
+          key="milestone-backdrop"
+          className="fixed inset-0 z-[9998] bg-black/90 backdrop-blur-2xl pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        />
+      )}
+      {isOpen && milestone && (
+        <motion.div
+          key="milestone-wrapper"
           ref={wrapperRef}
-          className="fixed inset-0 z-[9999] overflow-y-auto bg-black/90 backdrop-blur-2xl"
+          className="fixed inset-0 z-[9999] overflow-y-auto"
           onClick={onClose}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

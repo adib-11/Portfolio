@@ -52,6 +52,19 @@ const ProfileCardComponent = ({
 }) => {
   const wrapRef = useRef(null);
   const shellRef = useRef(null);
+  const shellDimsRef = useRef({ width: 1, height: 1 });
+
+  useEffect(() => {
+    const shell = shellRef.current;
+    if (!shell) return;
+    const updateDims = () => {
+      shellDimsRef.current = { width: shell.clientWidth || 1, height: shell.clientHeight || 1 };
+    };
+    const ro = new ResizeObserver(updateDims);
+    ro.observe(shell);
+    updateDims();
+    return () => ro.disconnect();
+  }, []);
 
   const enterTimerRef = useRef(null);
   const leaveRafRef = useRef(null);
@@ -77,8 +90,7 @@ const ProfileCardComponent = ({
       const wrap = wrapRef.current;
       if (!shell || !wrap) return;
 
-      const width = shell.clientWidth || 1;
-      const height = shell.clientHeight || 1;
+      const { width, height } = shellDimsRef.current;
 
       const percentX = clamp((100 / width) * x);
       const percentY = clamp((100 / height) * y);
@@ -151,7 +163,8 @@ const ProfileCardComponent = ({
       toCenter() {
         const shell = shellRef.current;
         if (!shell) return;
-        this.setTarget(shell.clientWidth / 2, shell.clientHeight / 2);
+        const { width, height } = shellDimsRef.current;
+        this.setTarget(width / 2, height / 2);
       },
       beginInitial(durationMs) {
         initialUntil = performance.now() + durationMs;
@@ -230,13 +243,14 @@ const ProfileCardComponent = ({
       const { beta, gamma } = event;
       if (beta == null || gamma == null) return;
 
-      const centerX = shell.clientWidth / 2;
-      const centerY = shell.clientHeight / 2;
-      const x = clamp(centerX + gamma * mobileTiltSensitivity, 0, shell.clientWidth);
+      const { width, height } = shellDimsRef.current;
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const x = clamp(centerX + gamma * mobileTiltSensitivity, 0, width);
       const y = clamp(
         centerY + (beta - ANIMATION_CONFIG.DEVICE_BETA_OFFSET) * mobileTiltSensitivity,
         0,
-        shell.clientHeight
+        height
       );
 
       tiltEngine.setTarget(x, y);

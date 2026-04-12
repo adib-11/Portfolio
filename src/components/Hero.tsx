@@ -4,9 +4,26 @@ import gsap from 'gsap';
 
 const roles = ["iOS Developer", "Software Engineer", "Innovator"];
 
+function RotatingRole() {
+  const [roleIndex, setRoleIndex] = useState(0);
+
+  useEffect(() => {
+    // Role cycling
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev + 1) % roles.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="blur-in text-xl md:text-2xl text-text-primary mb-4">
+      {/^[aeiou]/i.test(roles[roleIndex]) ? "An" : "A"} <span key={roleIndex} className="font-display italic text-text-primary animate-role-fade-in inline-block">{roles[roleIndex]}</span> based in Bangladesh.
+    </div>
+  );
+}
+
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [roleIndex, setRoleIndex] = useState(0);
 
   useEffect(() => {
     // HLS Video Setup
@@ -22,14 +39,6 @@ export default function Hero() {
         video.src = src;
       }
     }
-  }, []);
-
-  useEffect(() => {
-    // Role cycling
-    const interval = setInterval(() => {
-      setRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 2000);
-    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -77,9 +86,7 @@ export default function Hero() {
           Md. Adib Hasan
         </h1>
         
-        <div className="blur-in text-xl md:text-2xl text-text-primary mb-4">
-          {/^[aeiou]/i.test(roles[roleIndex]) ? "An" : "A"} <span key={roleIndex} className="font-display italic text-text-primary animate-role-fade-in inline-block">{roles[roleIndex]}</span> based in Bangladesh.
-        </div>
+        <RotatingRole />
         
         <p className="blur-in text-sm md:text-base text-muted max-w-md mb-12">
           Crafting seamless and performant iOS applications using Swift and SwiftUI, with a strong focus on user experience and clean architecture.

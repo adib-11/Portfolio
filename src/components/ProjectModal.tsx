@@ -90,8 +90,19 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
     <AnimatePresence>
       {isOpen && project && (
         <motion.div
+          key="project-backdrop"
+          className="fixed inset-0 z-[9998] bg-black/90 backdrop-blur-2xl pointer-events-none"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        />
+      )}
+      {isOpen && project && (
+        <motion.div
+          key="project-wrapper"
           ref={wrapperRef}
-          className="fixed inset-0 z-[9999] overflow-y-auto bg-black/90 backdrop-blur-2xl"
+          className="fixed inset-0 z-[9999] overflow-y-auto"
           onClick={onClose}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

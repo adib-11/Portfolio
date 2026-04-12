@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { getAssetPath } from '../utils/assetPath';
 
 const SQRT_5000 = Math.sqrt(5000);
 
@@ -10,35 +11,35 @@ const educationData = [
     title: "B.Sc in Electrical & Computer Engineering. Current CGPA: 3.70/4.00 with coursework in C, C++, Java, DSA, Database Management, and Digital Techniques.",
     institution: "Rajshahi University of Engineering & Technology (RUET)",
     year: "2023 - Present",
-    imgSrc: "/logos/ruet_logo.png"
+    imgSrc: getAssetPath("/logos/ruet_logo.png")
   },
   {
     id: 1,
     title: "Higher Secondary Certificate (HSC). Achieved GPA 5.00/5.00 in Science group.",
     institution: "Abdul Kadir Mollah City College, Narsingdi",
     year: "2022",
-    imgSrc: "/logos/college.png"
+    imgSrc: getAssetPath("/logos/college.png")
   },
   {
     id: 2,
     title: "Secondary School Certificate (SSC). Achieved GPA 5.00/5.00 in Science group.",
     institution: "Brahmondi K.K.M Govt High School",
     year: "2020",
-    imgSrc: "/logos/school.png"
+    imgSrc: getAssetPath("/logos/school.png")
   },
   {
     id: 3,
     title: "Agentic AI Certification. Completed coursework on building autonomous AI agents and workflows.",
     institution: "DeepLearning.AI",
     year: "2025",
-    imgSrc: "/logos/deeplearning.png"
+    imgSrc: getAssetPath("/logos/deeplearning.png")
   },
   {
     id: 4,
     title: "100 Days of SwiftUI. Comprehensive iOS development course covering SwiftUI, Core Data, networking, and app architecture.",
     institution: "HackingWithSwift.com",
     year: "Ongoing",
-    imgSrc: "/logos/hacking_with_swift.png"
+    imgSrc: getAssetPath("/logos/hacking_with_swift.png")
   }
 ];
 

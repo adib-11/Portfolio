@@ -3,34 +3,35 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from './Button';
 import MilestoneModal, { MilestoneData } from './MilestoneModal';
+import { getAssetPath } from '../utils/assetPath';
 
 const entries: MilestoneData[] = [
   { 
     title: "Team Leader | UIHP Innovation Cohort", 
     date: "2024", 
     readTime: "40k BDT Funded", 
-    image: "/milestones/uihp.jpg",
+    image: getAssetPath("/milestones/uihp.jpg"),
     description: "As the Team Leader for the UIHP Innovation Cohort, I led a multidisciplinary team to conceptualize and develop an innovative, tech-driven healthcare solution. Our project successfully secured 40,000 BDT in funding from the program. The experience challenged me to think beyond mere code—integrating real-world problem-solving, team coordination, and stringent milestone delivery under pressure."
   },
   { 
     title: "2nd Runner-UP | Hult Prize at RUET 2026", 
     date: "2026", 
     readTime: "RUET", 
-    image: "/milestones/hult.jpg",
+    image: getAssetPath("/milestones/hult.jpg"),
     description: "Securing the 2nd Runner-Up position at the prestigious Hult Prize at RUET involved pitching a globally scalable social enterprise idea to a panel of expert judges. The competition honed my ability to identify pressing socio-economic challenges, architect sustainable startup models, and confidently present our technical infrastructure to stakeholders."
   },
   { 
     title: "Top 50 | InnovateX Hackathon", 
     date: "2024", 
     readTime: "BUBT × Programming Hero", 
-    image: "/milestones/innovatex.jpg",
+    image: getAssetPath("/milestones/innovatex.jpg"),
     description: "Competing against hundreds of talented teams nationally, my team secured a Top 50 placement at the InnovateX Hackathon hosted by BUBT and Programming Hero. We engineered a rapid prototype under a grueling 24-hour time constraint, proving our collective ability to design, develop, and deploy a functional product on strict deadlines without compromising code quality."
   },
   { 
     title: "Top 50 | SOLVIO AI Hackathon", 
     date: "2024", 
     readTime: "Sheba Platform", 
-    image: "/milestones/solvio.jpg",
+    image: getAssetPath("/milestones/solvio.jpg"),
     description: "Achieved a Top 50 finish at the SOLVIO AI Hackathon, organized by Sheba Platform. The event focused intensely on integrating artificial intelligence into practical service delivery models. We rapidly leveraged modern APIs and machine learning concepts to build an intelligent prototype, showcasing how AI can seamlessly streamline business operations."
   },
 ];
