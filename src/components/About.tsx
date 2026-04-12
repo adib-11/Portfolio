@@ -21,7 +21,7 @@ export default function About() {
               handle="adibhasan"
               status="Online"
               contactText="Contact Me"
-              avatarUrl={getAssetPath("/avatar.png")}
+              avatarUrl={getAssetPath("/avatar.webp")}
               showUserInfo={false}
               enableTilt={true}
               enableMobileTilt={false}

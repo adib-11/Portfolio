@@ -7,12 +7,12 @@ import { getAssetPath } from '../utils/assetPath';
 gsap.registerPlugin(ScrollTrigger);
 
 const explorations = [
-  { image: getAssetPath("/explorations/expl_1.png"), rotation: -5, yOffset: 0 },
-  { image: getAssetPath("/explorations/expl_2.png"), rotation: 3, yOffset: 200 },
-  { image: getAssetPath("/explorations/expl_3.png"), rotation: 2, yOffset: 100 },
-  { image: getAssetPath("/explorations/expl_4.png"), rotation: -4, yOffset: 300 },
-  { image: getAssetPath("/explorations/expl_5.png"), rotation: -2, yOffset: 200 },
-  { image: getAssetPath("/explorations/expl_6.png"), rotation: 5, yOffset: 400 },
+  { image: getAssetPath("/explorations/expl_1.webp"), rotation: -5, yOffset: 0 },
+  { image: getAssetPath("/explorations/expl_2.webp"), rotation: 3, yOffset: 200 },
+  { image: getAssetPath("/explorations/expl_3.webp"), rotation: 2, yOffset: 100 },
+  { image: getAssetPath("/explorations/expl_4.webp"), rotation: -4, yOffset: 300 },
+  { image: getAssetPath("/explorations/expl_5.webp"), rotation: -2, yOffset: 200 },
+  { image: getAssetPath("/explorations/expl_6.webp"), rotation: 5, yOffset: 400 },
 ];
 
 export default function Explorations() {
@@ -105,6 +105,8 @@ export default function Explorations() {
                 <img 
                   src={item.image} 
                   alt="Exploration" 
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
@@ -125,6 +127,8 @@ export default function Explorations() {
                 <img 
                   src={item.image} 
                   alt="Exploration" 
+                  loading="lazy"
+                  decoding="async"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />

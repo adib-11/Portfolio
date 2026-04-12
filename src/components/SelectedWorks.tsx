@@ -14,8 +14,8 @@ const projects = [
     description: "SwiftUI iOS app that helps users discover and explore ski resorts with a clean, adaptive master-detail interface.",
     longDescription: "SnowSeeker is a SwiftUI-based iOS app that helps users discover and explore ski resorts using a clean, adaptive master-detail interface powered by NavigationSplitView. It loads a bundled dataset from resorts.json, presents a browsable list with country flag thumbnails, resort names, and run counts, and offers fast, localized search via .searchable. Users can mark favorites, which are highlighted inline with a heart icon and shared across views through environment-injected state. The app leverages modern SwiftUI patterns including @State, environment models, and .navigationDestination for type-safe navigation, while incorporating accessibility labels for a more inclusive experience. Its modular structure and data-decoding approach provide a strong foundation for future enhancements like sorting, advanced filters, richer detail views, and cloud-synced favorites.",
     screenshots: [
-      getAssetPath("/projects/snowseeker/Home.png"),
-      getAssetPath("/projects/snowseeker/Details.png"),
+      getAssetPath("/projects/snowseeker/Home.webp"),
+      getAssetPath("/projects/snowseeker/Details.webp"),
     ],
     githubUrl: "https://github.com/adib-11/100-Days-of-SwiftUI/tree/main/project19",
   },
@@ -24,8 +24,8 @@ const projects = [
     description: "SwiftUI iOS app for tracking potential contacts and outreach. It organizes leads into clear tabs—Everyone, Contacted, and Uncontacted.",
     longDescription: "Hot Prospects is a SwiftUI iOS app for tracking potential contacts and outreach. It organizes leads into clear tabs—Everyone, Contacted, and Uncontacted—so you can prioritize follow-ups at a glance. Built with a clean, tab-based UI and modular views, the project demonstrates state management, filtering, and scalable SwiftUI architecture suitable for real-world productivity apps.",
     screenshots: [
-      getAssetPath("/projects/hotprospects/1.png"),
-      getAssetPath("/projects/hotprospects/2.png"),
+      getAssetPath("/projects/hotprospects/1.webp"),
+      getAssetPath("/projects/hotprospects/2.webp"),
     ],
     githubUrl: "https://github.com/adib-11/100-Days-of-SwiftUI/tree/main/project16",
   },
@@ -34,7 +34,7 @@ const projects = [
     description: "SwiftUI app that lets users build a personalized map of places they want to remember or explore, combining a clean, privacy-conscious architecture with delightful features.",
     longDescription: "BucketList is a SwiftUI app that lets users build a personalized map of places they want to remember or explore, combining a clean, privacy-conscious architecture with delightful, practical features. The app uses MapKit with an intuitive, tappable map to add locations, and displays custom annotations that can be long-pressed to edit details. A lightweight model layer persists data securely to disk using Codable and complete file protection, while Swift Concurrency powers seamless fetching of nearby points of interest from Wikipedia to enrich each place with contextual information. The experience is gated by secure biometric authentication via LocalAuthentication, ensuring personal data remains private. The codebase follows modern Swift practices—observable view models for state, clear separation of concerns, and dependency-light design—resulting in a fast, maintainable, and accessible app that feels at home across Apple platforms.",
     screenshots: [
-      getAssetPath("/projects/bucketlist/1.png"),
+      getAssetPath("/projects/bucketlist/1.webp"),
       getAssetPath("/projects/bucketlist/video.mp4"),
     ],
     githubUrl: "https://github.com/adib-11/100-Days-of-SwiftUI/tree/main/project14",
@@ -44,8 +44,8 @@ const projects = [
     description: "Polished SwiftUI learning game that challenges players to identify national flags with engaging interactions and modern visual design.",
     longDescription: "Guess the Flag is a polished SwiftUI learning game that challenges players to identify national flags. Each round presents three flags and prompts the user to “Tap the flag of” a specific country. The app features smooth animations (3D spin on selection and contextual opacity for non-selected flags), a clean glassy UI using materials and gradients, and a simple scoring system with round-based progression. After eight questions, it displays a final score with an option to play again.\n\nKey highlights:\n• Built with SwiftUI, leveraging @State for game state, scoring, and animations.\n• Engaging interactions: 3D rotation on tap and subtle transitions to emphasize choices.\n• Clear game loop with shuffle logic, correctness feedback via alerts, and a final results screen.\n• Modern visual design: radial gradient background, material cards, and shadowed capsule images for flags.\n\nThis project demonstrates SwiftUI fundamentals, state management, user feedback, and delightful UI/UX patterns in a compact, production-quality mini-game.",
     screenshots: [
-      getAssetPath("/projects/guesstheflag/1.png"),
-      getAssetPath("/projects/guesstheflag/2.png"),
+      getAssetPath("/projects/guesstheflag/1.webp"),
+      getAssetPath("/projects/guesstheflag/2.webp"),
     ],
     githubUrl: "https://github.com/adib-11/100-Days-of-SwiftUI/tree/main/GuessTheFlag",
   },
@@ -54,7 +54,7 @@ const projects = [
     description: "Interactive, state-driven animations demo using a spring-animated button and a draggable, per-character text effect.",
     longDescription: "This SwiftUI demo showcases interactive, state-driven animations using a spring-animated button and a draggable, per-character text effect. Tapping the button toggles an enabled state with a playful spring transition that morphs color and corner radius, while the text “How cool is that?!” is rendered as individually animated characters that move together via a DragGesture and return to their origin on release. Each character uses a slight delay for a wave-like motion, and the drag ending also flips the enabled state to alternate the color scheme. The implementation cleanly leverages @State, withAnimation, and .animation(..., value:) to combine explicit and implicit animations, illustrating how minimal, declarative SwiftUI code can create tactile, delightful interactions.",
     screenshots: [
-      getAssetPath("/projects/animations/1.png"),
+      getAssetPath("/projects/animations/1.webp"),
       getAssetPath("/projects/animations/video.mov"),
     ],
     githubUrl: "https://github.com/adib-11/100-Days-of-SwiftUI/tree/main/Animations",

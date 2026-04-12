@@ -11,35 +11,35 @@ const educationData = [
     title: "B.Sc in Electrical & Computer Engineering. Current CGPA: 3.70/4.00 with coursework in C, C++, Java, DSA, Database Management, and Digital Techniques.",
     institution: "Rajshahi University of Engineering & Technology (RUET)",
     year: "2023 - Present",
-    imgSrc: getAssetPath("/logos/ruet_logo.png")
+    imgSrc: getAssetPath("/logos/ruet_logo.webp")
   },
   {
     id: 1,
     title: "Higher Secondary Certificate (HSC). Achieved GPA 5.00/5.00 in Science group.",
     institution: "Abdul Kadir Mollah City College, Narsingdi",
     year: "2022",
-    imgSrc: getAssetPath("/logos/college.png")
+    imgSrc: getAssetPath("/logos/college.webp")
   },
   {
     id: 2,
     title: "Secondary School Certificate (SSC). Achieved GPA 5.00/5.00 in Science group.",
     institution: "Brahmondi K.K.M Govt High School",
     year: "2020",
-    imgSrc: getAssetPath("/logos/school.png")
+    imgSrc: getAssetPath("/logos/school.webp")
   },
   {
     id: 3,
     title: "Agentic AI Certification. Completed coursework on building autonomous AI agents and workflows.",
     institution: "DeepLearning.AI",
     year: "2025",
-    imgSrc: getAssetPath("/logos/deeplearning.png")
+    imgSrc: getAssetPath("/logos/deeplearning.webp")
   },
   {
     id: 4,
     title: "100 Days of SwiftUI. Comprehensive iOS development course covering SwiftUI, Core Data, networking, and app architecture.",
     institution: "HackingWithSwift.com",
     year: "Ongoing",
-    imgSrc: getAssetPath("/logos/hacking_with_swift.png")
+    imgSrc: getAssetPath("/logos/hacking_with_swift.webp")
   }
 ];
 
@@ -96,6 +96,8 @@ const EducationCard: React.FC<EducationCardProps> = ({
       <img
         src={data.imgSrc}
         alt={data.institution}
+        loading="lazy"
+        decoding="async"
         className="mb-4 h-14 w-12 bg-stroke object-cover object-center"
         style={{
           boxShadow: "3px 3px 0px var(--color-bg)"
